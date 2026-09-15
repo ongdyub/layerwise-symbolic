@@ -1,0 +1,107 @@
+\documentclass[10pt]{article}
+\usepackage[margin=2.2cm]{geometry}\usepackage{graphicx,booktabs,amsmath}\usepackage[hidelinks]{hyperref}
+\usepackage{caption}\captionsetup{font=small}
+\begin{document}
+
+\section*{A\quad Mutual Information of LMD}
+The MusicBERT OctupleMIDI token dictionary contains 256 bar tokens, 128 position tokens, 129 instrument tokens, 256 pitch tokens, 128 duration tokens, 32 velocity tokens, 254 time-signature tokens, and 49 tempo tokens. The panels show the unscaled plug-in MI (nats) between each of the eight attributes and the layer-wise cluster assignment on the held-out LMD-matched test split, for $K=1{,}000$ (solid) and $K=2{,}000$ (dashed), averaged over quantizer seeds (band: $\pm1$ SD). Per-seed values are in \texttt{tables/token\_mi\_lmd.csv}.
+\begin{center}\includegraphics[width=\textwidth,height=.84\textheight,keepaspectratio]{figures/token_mi_lmd.pdf}\end{center}
+\clearpage
+\begin{table}[h]\centering\scriptsize\setlength{\tabcolsep}{3.5pt}
+\caption{LMD-matched: plug-in MI in nats at $K=1,000$, mean $\pm$ SD over quantizer seeds (12, 42, 97); 4,472,244 note tokens.}\label{tab:lmd1000}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & Bar & Position & Instrument & Pitch & Duration & Velocity & Time signature & Tempo \\
+Layer &  &  &  &  &  &  &  &  \\
+\midrule
+1 & 0.145 $\pm$ 0.048 & 1.016 $\pm$ 0.052 & 1.473 $\pm$ 0.088 & 2.294 $\pm$ 0.037 & 2.036 $\pm$ 0.145 & 0.630 $\pm$ 0.098 & 0.054 $\pm$ 0.005 & 0.101 $\pm$ 0.015 \\
+2 & 0.281 $\pm$ 0.069 & 1.864 $\pm$ 0.084 & 1.318 $\pm$ 0.070 & 2.079 $\pm$ 0.015 & 1.271 $\pm$ 0.190 & 0.433 $\pm$ 0.050 & 0.047 $\pm$ 0.004 & 0.068 $\pm$ 0.008 \\
+3 & 0.353 $\pm$ 0.076 & 2.156 $\pm$ 0.017 & 1.119 $\pm$ 0.043 & 1.768 $\pm$ 0.020 & 1.205 $\pm$ 0.187 & 0.218 $\pm$ 0.018 & 0.044 $\pm$ 0.003 & 0.056 $\pm$ 0.007 \\
+4 & 0.473 $\pm$ 0.051 & 1.985 $\pm$ 0.038 & 1.041 $\pm$ 0.028 & 1.961 $\pm$ 0.035 & 0.730 $\pm$ 0.083 & 0.124 $\pm$ 0.005 & 0.035 $\pm$ 0.002 & 0.041 $\pm$ 0.005 \\
+5 & 0.638 $\pm$ 0.071 & 2.345 $\pm$ 0.029 & 1.018 $\pm$ 0.031 & 1.365 $\pm$ 0.047 & 0.650 $\pm$ 0.060 & 0.106 $\pm$ 0.007 & 0.047 $\pm$ 0.006 & 0.049 $\pm$ 0.007 \\
+6 & 0.628 $\pm$ 0.103 & 2.194 $\pm$ 0.034 & 1.079 $\pm$ 0.038 & 1.326 $\pm$ 0.060 & 0.644 $\pm$ 0.049 & 0.280 $\pm$ 0.054 & 0.046 $\pm$ 0.004 & 0.057 $\pm$ 0.009 \\
+7 & 0.383 $\pm$ 0.105 & 2.131 $\pm$ 0.032 & 1.137 $\pm$ 0.035 & 1.398 $\pm$ 0.049 & 0.799 $\pm$ 0.103 & 0.319 $\pm$ 0.051 & 0.051 $\pm$ 0.005 & 0.081 $\pm$ 0.009 \\
+8 & 0.485 $\pm$ 0.114 & 1.962 $\pm$ 0.038 & 1.127 $\pm$ 0.035 & 1.502 $\pm$ 0.046 & 0.700 $\pm$ 0.071 & 0.387 $\pm$ 0.059 & 0.046 $\pm$ 0.004 & 0.069 $\pm$ 0.009 \\
+9 & 0.536 $\pm$ 0.070 & 1.980 $\pm$ 0.062 & 1.139 $\pm$ 0.046 & 1.867 $\pm$ 0.079 & 0.578 $\pm$ 0.035 & 0.241 $\pm$ 0.024 & 0.043 $\pm$ 0.003 & 0.060 $\pm$ 0.007 \\
+10 & 0.437 $\pm$ 0.069 & 2.394 $\pm$ 0.078 & 1.088 $\pm$ 0.036 & 2.047 $\pm$ 0.070 & 0.686 $\pm$ 0.049 & 0.209 $\pm$ 0.008 & 0.055 $\pm$ 0.006 & 0.067 $\pm$ 0.006 \\
+11 & 0.169 $\pm$ 0.038 & 2.319 $\pm$ 0.069 & 1.034 $\pm$ 0.023 & 2.819 $\pm$ 0.061 & 0.800 $\pm$ 0.099 & 0.244 $\pm$ 0.014 & 0.054 $\pm$ 0.005 & 0.074 $\pm$ 0.004 \\
+12 & 0.076 $\pm$ 0.006 & 0.864 $\pm$ 0.027 & 1.300 $\pm$ 0.073 & 3.213 $\pm$ 0.093 & 1.129 $\pm$ 0.086 & 0.970 $\pm$ 0.022 & 0.091 $\pm$ 0.017 & 0.165 $\pm$ 0.016 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]\centering\scriptsize\setlength{\tabcolsep}{3.5pt}
+\caption{LMD-matched: plug-in MI in nats at $K=2,000$, mean $\pm$ SD over quantizer seeds (1, 2, 3, 4, 42); 17,182,797 note tokens.}\label{tab:lmd2000}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & Bar & Position & Instrument & Pitch & Duration & Velocity & Time signature & Tempo \\
+Layer &  &  &  &  &  &  &  &  \\
+\midrule
+1 & 0.106 $\pm$ 0.001 & 0.989 $\pm$ 0.010 & 1.559 $\pm$ 0.017 & 2.320 $\pm$ 0.025 & 1.772 $\pm$ 0.015 & 0.746 $\pm$ 0.014 & 0.046 $\pm$ 0.001 & 0.125 $\pm$ 0.002 \\
+2 & 0.167 $\pm$ 0.006 & 2.041 $\pm$ 0.013 & 1.451 $\pm$ 0.011 & 2.179 $\pm$ 0.016 & 1.173 $\pm$ 0.015 & 0.702 $\pm$ 0.012 & 0.046 $\pm$ 0.001 & 0.092 $\pm$ 0.001 \\
+3 & 0.172 $\pm$ 0.002 & 2.340 $\pm$ 0.008 & 1.250 $\pm$ 0.004 & 2.025 $\pm$ 0.006 & 1.284 $\pm$ 0.006 & 0.493 $\pm$ 0.008 & 0.045 $\pm$ 0.000 & 0.085 $\pm$ 0.001 \\
+4 & 0.212 $\pm$ 0.002 & 2.261 $\pm$ 0.008 & 1.172 $\pm$ 0.010 & 2.258 $\pm$ 0.009 & 0.846 $\pm$ 0.013 & 0.268 $\pm$ 0.005 & 0.039 $\pm$ 0.001 & 0.073 $\pm$ 0.001 \\
+5 & 0.247 $\pm$ 0.006 & 2.511 $\pm$ 0.003 & 1.187 $\pm$ 0.004 & 1.688 $\pm$ 0.010 & 0.804 $\pm$ 0.006 & 0.189 $\pm$ 0.002 & 0.048 $\pm$ 0.001 & 0.082 $\pm$ 0.001 \\
+6 & 0.220 $\pm$ 0.003 & 2.409 $\pm$ 0.007 & 1.220 $\pm$ 0.009 & 1.562 $\pm$ 0.013 & 0.748 $\pm$ 0.008 & 0.613 $\pm$ 0.026 & 0.049 $\pm$ 0.001 & 0.092 $\pm$ 0.002 \\
+7 & 0.171 $\pm$ 0.007 & 2.334 $\pm$ 0.013 & 1.257 $\pm$ 0.005 & 1.599 $\pm$ 0.011 & 0.866 $\pm$ 0.010 & 0.606 $\pm$ 0.006 & 0.055 $\pm$ 0.001 & 0.112 $\pm$ 0.003 \\
+8 & 0.176 $\pm$ 0.007 & 2.190 $\pm$ 0.015 & 1.233 $\pm$ 0.003 & 1.757 $\pm$ 0.014 & 0.790 $\pm$ 0.004 & 0.723 $\pm$ 0.020 & 0.050 $\pm$ 0.001 & 0.106 $\pm$ 0.005 \\
+9 & 0.227 $\pm$ 0.003 & 2.299 $\pm$ 0.011 & 1.272 $\pm$ 0.005 & 2.297 $\pm$ 0.021 & 0.691 $\pm$ 0.005 & 0.599 $\pm$ 0.010 & 0.050 $\pm$ 0.001 & 0.112 $\pm$ 0.001 \\
+10 & 0.191 $\pm$ 0.004 & 2.592 $\pm$ 0.010 & 1.212 $\pm$ 0.005 & 2.526 $\pm$ 0.013 & 0.769 $\pm$ 0.007 & 0.507 $\pm$ 0.007 & 0.054 $\pm$ 0.002 & 0.114 $\pm$ 0.001 \\
+11 & 0.113 $\pm$ 0.003 & 2.495 $\pm$ 0.014 & 1.121 $\pm$ 0.005 & 3.084 $\pm$ 0.024 & 0.884 $\pm$ 0.011 & 0.537 $\pm$ 0.009 & 0.052 $\pm$ 0.001 & 0.119 $\pm$ 0.001 \\
+12 & 0.081 $\pm$ 0.001 & 0.919 $\pm$ 0.013 & 1.428 $\pm$ 0.008 & 3.481 $\pm$ 0.009 & 1.354 $\pm$ 0.019 & 1.271 $\pm$ 0.027 & 0.093 $\pm$ 0.003 & 0.262 $\pm$ 0.002 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\clearpage
+\section*{B\quad Mutual Information of SOD}
+Same quantizers (fitted on the LMD-matched training split), evaluated on the Symbolic Orchestral Database.
+\begin{center}\includegraphics[width=\textwidth,height=.84\textheight,keepaspectratio]{figures/token_mi_sod.pdf}\end{center}
+\clearpage
+\begin{table}[h]\centering\scriptsize\setlength{\tabcolsep}{3.5pt}
+\caption{SOD: plug-in MI in nats at $K=1,000$, mean $\pm$ SD over quantizer seeds (12, 42, 97); 4,793,154 note tokens.}\label{tab:sod1000}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & Bar & Position & Instrument & Pitch & Duration & Velocity & Time signature & Tempo \\
+Layer &  &  &  &  &  &  &  &  \\
+\midrule
+1 & 0.200 $\pm$ 0.065 & 0.965 $\pm$ 0.093 & 0.707 $\pm$ 0.095 & 1.691 $\pm$ 0.059 & 1.917 $\pm$ 0.184 & 0.375 $\pm$ 0.054 & 0.139 $\pm$ 0.013 & 0.113 $\pm$ 0.019 \\
+2 & 0.294 $\pm$ 0.069 & 1.489 $\pm$ 0.042 & 0.551 $\pm$ 0.059 & 1.959 $\pm$ 0.037 & 1.110 $\pm$ 0.164 & 0.188 $\pm$ 0.037 & 0.121 $\pm$ 0.010 & 0.072 $\pm$ 0.009 \\
+3 & 0.396 $\pm$ 0.037 & 1.720 $\pm$ 0.022 & 0.411 $\pm$ 0.039 & 1.350 $\pm$ 0.052 & 1.086 $\pm$ 0.145 & 0.116 $\pm$ 0.024 & 0.123 $\pm$ 0.008 & 0.063 $\pm$ 0.008 \\
+4 & 0.470 $\pm$ 0.030 & 1.446 $\pm$ 0.028 & 0.291 $\pm$ 0.007 & 1.717 $\pm$ 0.016 & 0.611 $\pm$ 0.058 & 0.041 $\pm$ 0.005 & 0.084 $\pm$ 0.002 & 0.038 $\pm$ 0.002 \\
+5 & 0.668 $\pm$ 0.054 & 1.897 $\pm$ 0.025 & 0.297 $\pm$ 0.022 & 0.627 $\pm$ 0.052 & 0.585 $\pm$ 0.029 & 0.036 $\pm$ 0.005 & 0.131 $\pm$ 0.011 & 0.043 $\pm$ 0.003 \\
+6 & 0.670 $\pm$ 0.067 & 1.747 $\pm$ 0.049 & 0.314 $\pm$ 0.022 & 0.551 $\pm$ 0.056 & 0.544 $\pm$ 0.022 & 0.069 $\pm$ 0.015 & 0.119 $\pm$ 0.005 & 0.043 $\pm$ 0.003 \\
+7 & 0.444 $\pm$ 0.069 & 1.837 $\pm$ 0.014 & 0.323 $\pm$ 0.021 & 0.404 $\pm$ 0.012 & 0.815 $\pm$ 0.105 & 0.101 $\pm$ 0.019 & 0.143 $\pm$ 0.012 & 0.057 $\pm$ 0.006 \\
+8 & 0.587 $\pm$ 0.084 & 1.670 $\pm$ 0.036 & 0.333 $\pm$ 0.020 & 0.521 $\pm$ 0.010 & 0.568 $\pm$ 0.050 & 0.129 $\pm$ 0.016 & 0.113 $\pm$ 0.005 & 0.049 $\pm$ 0.004 \\
+9 & 0.600 $\pm$ 0.036 & 1.545 $\pm$ 0.072 & 0.340 $\pm$ 0.034 & 1.150 $\pm$ 0.102 & 0.469 $\pm$ 0.026 & 0.055 $\pm$ 0.011 & 0.100 $\pm$ 0.005 & 0.041 $\pm$ 0.003 \\
+10 & 0.463 $\pm$ 0.046 & 1.823 $\pm$ 0.102 & 0.310 $\pm$ 0.020 & 1.674 $\pm$ 0.130 & 0.614 $\pm$ 0.046 & 0.066 $\pm$ 0.011 & 0.142 $\pm$ 0.026 & 0.055 $\pm$ 0.005 \\
+11 & 0.132 $\pm$ 0.025 & 1.889 $\pm$ 0.069 & 0.311 $\pm$ 0.019 & 2.786 $\pm$ 0.096 & 0.701 $\pm$ 0.086 & 0.073 $\pm$ 0.013 & 0.150 $\pm$ 0.023 & 0.060 $\pm$ 0.006 \\
+12 & 0.046 $\pm$ 0.009 & 0.636 $\pm$ 0.053 & 0.558 $\pm$ 0.045 & 2.926 $\pm$ 0.282 & 0.911 $\pm$ 0.130 & 0.571 $\pm$ 0.020 & 0.198 $\pm$ 0.081 & 0.112 $\pm$ 0.018 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]\centering\scriptsize\setlength{\tabcolsep}{3.5pt}
+\caption{SOD: plug-in MI in nats at $K=2,000$, mean $\pm$ SD over quantizer seeds (1, 2, 3, 4, 42); 15,660,784 note tokens.}\label{tab:sod2000}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+ & Bar & Position & Instrument & Pitch & Duration & Velocity & Time signature & Tempo \\
+Layer &  &  &  &  &  &  &  &  \\
+\midrule
+1 & 0.247 $\pm$ 0.006 & 0.903 $\pm$ 0.017 & 0.804 $\pm$ 0.022 & 1.554 $\pm$ 0.040 & 1.707 $\pm$ 0.026 & 0.355 $\pm$ 0.014 & 0.104 $\pm$ 0.002 & 0.091 $\pm$ 0.001 \\
+2 & 0.341 $\pm$ 0.004 & 1.688 $\pm$ 0.015 & 0.765 $\pm$ 0.030 & 1.855 $\pm$ 0.011 & 1.024 $\pm$ 0.016 & 0.228 $\pm$ 0.007 & 0.115 $\pm$ 0.002 & 0.073 $\pm$ 0.001 \\
+3 & 0.347 $\pm$ 0.009 & 1.964 $\pm$ 0.020 & 0.628 $\pm$ 0.015 & 1.473 $\pm$ 0.022 & 1.167 $\pm$ 0.014 & 0.164 $\pm$ 0.004 & 0.129 $\pm$ 0.001 & 0.074 $\pm$ 0.001 \\
+4 & 0.371 $\pm$ 0.005 & 1.742 $\pm$ 0.020 & 0.479 $\pm$ 0.035 & 1.978 $\pm$ 0.028 & 0.707 $\pm$ 0.015 & 0.072 $\pm$ 0.003 & 0.102 $\pm$ 0.001 & 0.051 $\pm$ 0.001 \\
+5 & 0.461 $\pm$ 0.007 & 2.087 $\pm$ 0.016 & 0.554 $\pm$ 0.028 & 0.933 $\pm$ 0.016 & 0.686 $\pm$ 0.010 & 0.069 $\pm$ 0.003 & 0.145 $\pm$ 0.004 & 0.062 $\pm$ 0.002 \\
+6 & 0.456 $\pm$ 0.005 & 1.984 $\pm$ 0.025 & 0.566 $\pm$ 0.023 & 0.773 $\pm$ 0.016 & 0.652 $\pm$ 0.012 & 0.154 $\pm$ 0.001 & 0.133 $\pm$ 0.004 & 0.064 $\pm$ 0.001 \\
+7 & 0.349 $\pm$ 0.011 & 2.024 $\pm$ 0.020 & 0.557 $\pm$ 0.017 & 0.511 $\pm$ 0.014 & 0.910 $\pm$ 0.021 & 0.182 $\pm$ 0.005 & 0.155 $\pm$ 0.007 & 0.075 $\pm$ 0.001 \\
+8 & 0.400 $\pm$ 0.013 & 1.903 $\pm$ 0.020 & 0.524 $\pm$ 0.023 & 0.713 $\pm$ 0.032 & 0.679 $\pm$ 0.009 & 0.217 $\pm$ 0.005 & 0.130 $\pm$ 0.002 & 0.064 $\pm$ 0.002 \\
+9 & 0.442 $\pm$ 0.003 & 1.855 $\pm$ 0.014 & 0.576 $\pm$ 0.019 & 1.553 $\pm$ 0.044 & 0.551 $\pm$ 0.008 & 0.106 $\pm$ 0.004 & 0.123 $\pm$ 0.002 & 0.061 $\pm$ 0.001 \\
+10 & 0.360 $\pm$ 0.008 & 2.132 $\pm$ 0.023 & 0.470 $\pm$ 0.028 & 2.073 $\pm$ 0.041 & 0.668 $\pm$ 0.008 & 0.104 $\pm$ 0.004 & 0.153 $\pm$ 0.010 & 0.068 $\pm$ 0.002 \\
+11 & 0.207 $\pm$ 0.004 & 2.137 $\pm$ 0.021 & 0.399 $\pm$ 0.005 & 2.895 $\pm$ 0.035 & 0.765 $\pm$ 0.015 & 0.096 $\pm$ 0.002 & 0.155 $\pm$ 0.008 & 0.065 $\pm$ 0.001 \\
+12 & 0.116 $\pm$ 0.001 & 0.815 $\pm$ 0.025 & 0.721 $\pm$ 0.050 & 2.746 $\pm$ 0.027 & 1.144 $\pm$ 0.036 & 0.669 $\pm$ 0.023 & 0.254 $\pm$ 0.015 & 0.155 $\pm$ 0.006 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}
