@@ -15,7 +15,7 @@ expert key / orchestral-role annotations, and (ii) layer-isolated and scalar-mix
 
 | module | paper | what it does |
 |---|---|---|
-| `layerwise/extract.py`  | Sec. 3.1 | hidden state of every note after each of the 12 layers (+ `[CLS]`), from OctupleMIDI token files; pieces longer than 1,022 notes are windowed |
+| `layerwise/extract.py`  | Sec. 3.1 | hidden state of every note after each of the 12 layers, from OctupleMIDI token files; pieces longer than 1,022 notes are windowed |
 | `layerwise/quantize.py` | Sec. 3.2, 4 | one K-means per layer on the ℓ2-normalised note states of **all** pieces of the LMD training split — streamed `MiniBatchKMeans.partial_fit`, every note once per epoch, 5 epochs, batch 8,192, k-means++ init, reassignment ratio 0.01, best epoch chosen by mean squared distance on the validation split — K ∈ {1,000, 2,000}, five seeds; frozen afterwards |
 | `layerwise/mi.py`       | Sec. 3.2 | plug-in MI (Eq. 1) at the token level and at the segment level (normalise → mean-pool → renormalise → assign with the same quantizer) |
 | `layerwise/probe.py`    | Sec. 3.3 | layer-isolated affine probes and scalar-mixture probes (Eq. 2, 3) with RMS scaling, 5 piece-grouped folds, inner validation split for early stopping, micro-F1 |
